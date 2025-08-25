@@ -8,6 +8,7 @@ namespace SyncthingTray.External
 {
     using System.Collections.Generic;
     using System.IO;
+	using System.Xml.Serialization;
 
 
     public partial class Configuration
@@ -99,7 +100,7 @@ namespace SyncthingTray.External
             {
                 if ((serializer == null))
                 {
-                    serializer = new System.Xml.Serialization.XmlSerializer(typeof(Configuration));
+                    serializer = new System.Xml.Serialization.XmlSerializer(typeof(Configuration), new XmlRootAttribute("configuration"));
                 }
                 return serializer;
             }
