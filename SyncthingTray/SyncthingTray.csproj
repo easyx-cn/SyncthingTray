@@ -113,9 +113,6 @@
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="Octokit">
-      <HintPath>..\packages\Octokit.0.5.2\lib\net45\Octokit.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
@@ -156,7 +153,6 @@
     <Compile Include="UI\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utilities\GitHubUtil.cs" />
     <Compile Include="Utilities\ProcessUtil.cs" />
     <Compile Include="Utilities\RegistryUtil.cs" />
     <Compile Include="External\SyncthingConfig.cs">
