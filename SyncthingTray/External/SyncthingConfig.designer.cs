@@ -14,7 +14,7 @@ namespace SyncthingTray.External
     public partial class Configuration
     {
 
-        private List<configurationDevice> deviceField;
+        private configurationDevice deviceField;
 
         private configurationGui guiField;
 
@@ -30,10 +30,10 @@ namespace SyncthingTray.External
         {
             this.optionsField = new configurationOptions();
             this.guiField = new configurationGui();
-            this.deviceField = new List<configurationDevice>();
+            this.deviceField = new configurationDevice();
         }
 
-        public List<configurationDevice> Device
+        public configurationDevice device
         {
             get
             {
@@ -69,7 +69,8 @@ namespace SyncthingTray.External
             }
         }
 
-        public int version
+		[XmlAttribute("version")]
+		public int version
         {
             get
             {
@@ -317,7 +318,8 @@ namespace SyncthingTray.External
             }
         }
 
-        public string id
+		[XmlAttribute("id")]
+		public string id
         {
             get
             {
@@ -329,7 +331,8 @@ namespace SyncthingTray.External
             }
         }
 
-        public string name
+		[XmlAttribute("name")]
+		public string name
         {
             get
             {
@@ -341,7 +344,8 @@ namespace SyncthingTray.External
             }
         }
 
-        public string compression
+		[XmlAttribute("compression")]
+		public string compression
         {
             get
             {
@@ -353,7 +357,8 @@ namespace SyncthingTray.External
             }
         }
 
-        public string introducer
+		[XmlAttribute("introducer")]
+		public string introducer
         {
             get
             {
@@ -602,7 +607,8 @@ namespace SyncthingTray.External
             }
         }
 
-        public bool enabled
+		[XmlAttribute("enabled")]
+		public bool enabled
         {
             get
             {
@@ -627,7 +633,8 @@ namespace SyncthingTray.External
             }
         }
 
-        public bool tls
+		[XmlAttribute("tls")]
+		public bool tls
         {
             get
             {
