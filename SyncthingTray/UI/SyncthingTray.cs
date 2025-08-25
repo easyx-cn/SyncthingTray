@@ -6,6 +6,7 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace SyncthingTray.UI
@@ -83,6 +84,7 @@ namespace SyncthingTray.UI
                     ProcessUtil.StopProcessByName(Path.GetFileNameWithoutExtension(Settings.Default.SyncthingPath));
                     _activeProcess = null;
                 }
+				Thread.Sleep(500);	//	无规律报错 only part of readprocessmemory or writeprocessmemory request was completed
 				CheckSyncthingStateAndUpdateUi();
 			}
             catch (Exception ex)
