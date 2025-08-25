@@ -83,8 +83,8 @@ namespace SyncthingTray.UI
                     ProcessUtil.StopProcessByName(Path.GetFileNameWithoutExtension(Settings.Default.SyncthingPath));
                     _activeProcess = null;
                 }
-                CheckSyncthingStateAndUpdateUi();
-            }
+				CheckSyncthingStateAndUpdateUi();
+			}
             catch (Exception ex)
             {
                 Log.Error(ex.ToString());
@@ -219,7 +219,14 @@ namespace SyncthingTray.UI
         }
 
         private void openWebinterfaceToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+		{
+			var isRunning = IsSyncthingRunning();
+			if (!isRunning)
+			{
+				MessageBox.Show("请先运行并点击 “Start” 启动 SyncthingTray");
+				return;
+			}
+
             if (_syncthingConfig.gui.enabled && IsSyncthingRunning() && !string.IsNullOrEmpty(_syncthingConfig.gui.address))
             {
                 Process.Start($"{(_syncthingConfig.gui.tls ? "https://" : "http://")}{_syncthingConfig.gui.address}");
