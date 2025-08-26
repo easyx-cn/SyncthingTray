@@ -6,6 +6,7 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -128,7 +129,14 @@ namespace SyncthingTray.UI
 
         private void ActiveProcess_OutputDataReceived(object sender, DataReceivedEventArgs e)
         {
-            Invoke(new MethodInvoker(() => textBoxLog.AppendText(e.Data + Environment.NewLine)));
+			string msg = "";
+			if (!string.IsNullOrEmpty(e.Data))
+			{
+				byte[] array = Encoding.Default.GetBytes(e.Data);
+				msg = Encoding.UTF8.GetString(array);
+			}
+
+			Invoke(new MethodInvoker(() => textBoxLog.AppendText(msg + Environment.NewLine)));
             if (WindowState == FormWindowState.Minimized && !Settings.Default.ShowTrayNotifications)
             {
                 Invoke(new MethodInvoker(() => notifyIcon.ShowBalloonTip(1000, Settings.Default.ApplicationName, e.Data, ToolTipIcon.Info)));
