@@ -26,5 +26,8 @@
     <Setting Name="SyncthingConfigFileName" Type="System.String" Scope="User">
       <Value Profile="(Default)">config.xml</Value>
     </Setting>
+    <Setting Name="LogPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">log\log.txt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

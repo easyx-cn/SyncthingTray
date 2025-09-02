@@ -1,5 +1,4 @@
-﻿using log4net;
-using SyncthingTray.External;
+﻿using SyncthingTray.External;
 using SyncthingTray.Properties;
 using SyncthingTray.Utilities;
 using System;
@@ -14,8 +13,6 @@ namespace SyncthingTray.UI
 {
     public partial class SyncthingTray : BaseForm
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof(SyncthingTray));
-
         private Process _activeProcess;
         private Configuration _syncthingConfig;
 
